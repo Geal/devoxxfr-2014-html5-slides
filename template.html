@@ -27,51 +27,17 @@
         .slide.title .footer .twitter   { float: right; }
         .slide.title .footer .twitter img { display: inline; position: relative; z-index: 1; margin: 0 .2em 0 0; vertical-align: middle; }
     </style>
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
 </head>
 <body class="list">
 	<header class="caption">
 		<h1 data-l10n-id="main-title"></h1>
 	</header>
-    <section class="slide language selection"><div>
-        <style>
-            .slide.language.selection h2, 
-            .slide.language.selection p                     { text-align: center; }
-            .slide.language.selection p a.selected          { color: green; }
-            .slide.language.selection p a.selected:before   { content: "✓"; }
-        </style>
-        <h2>Langue - Language</h2>
-        <p><a href="" class="french">en français</a> - <a href="" class="english">in english</a></p>
-        <script defer>
-            var setLang = function(lng, elToSelect, elToDeselect, e) {
-                if (e) {
-                    e.preventDefault();
-                }
-                document.webL10n.setLanguage(lng);
-		localStorage.lng = lng;
-                elToSelect.classList.add('selected');
-                elToDeselect.classList.remove('selected');
-            };
-            var slide = document.querySelector('.slide.language.selection');
-            var french = slide.querySelector('.french');
-            var english = slide.querySelector('.english');
-            french.addEventListener('click', setLang.bind(this, 'fr', french, english), false);
-            english.addEventListener('click', setLang.bind(this, 'en', english, french), false);
-            var startup = true;
-            window.addEventListener('localized', function() {
-                document.documentElement.lang = document.webL10n.getLanguage();
-                document.documentElement.dir = document.webL10n.getDirection();
-                if (startup) {
-                    startup = false;
-                    var selection = localStorage.lng || ((document.webL10n.getLanguage().indexOf('en') === 0) ? 'en' : 'fr');
-                    if (selection === 'fr') {
-                          setLang('fr', french, english);
-                    } else {
-                          setLang('en', english, french);
-                    }
-                }
-            }, false);
-        </script>
-    </div></section>
     <section class="slide cover" id="Cover"><div>
         <style>
             #Cover .titles       { margin: -105px -120px 0 -120px; }
@@ -92,19 +58,31 @@
             <h3></h3>
             <ul>
                 <li data-l10n-id="author">
-                <li><img src="pictures/twitter.png"><a href="https://twitter.com/your_twitter" rel="me" class="twitter">@your_twitter</a><img src="pictures/user_circle.png"><a href="" rel="me">http://your-website.com</a>
+                <li><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a><img src="pictures/user_circle.png"><a href="" rel="me">http://penazen-consulting.com/</a>
+                <li><img src="pictures/twitter.png"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a><img src="pictures/user_circle.png"><a href="" rel="me">http://unhandledexpression.com</a>
             </ul>
             <h4></h4>
-            <h5><a class="hashtag" href="https://twitter.com/search?q=%23deboxxbtc">#devoxx</a></h5>
+            <h5><a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a></h5>
         </div>
 		<img src="pictures/cover.jpg" alt="">
 	</div></section>
     <section class="slide cover title"><div>
         <div class="color1"></div><div class="color2"></div><div class="color3"></div>
-        <h1 data-l10n-id="example-title"></h1>
+        <h1>Programmation système robuste avec Rust</h1>
 		<img src="pictures/cover.jpg" alt="">
-        <p class="footer"><a class="hashtag" href="https://twitter.com/search?q=%23deboxxbtc">#devoxx</a><span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/your_twitter" rel="me" class="twitter">@your_twitter</a></span></p>
+    <p class="footer">
+    <a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a>
+    <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a></span>
+    /
+    <span class="twitter"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a></span></p>
     </div></section>
+$for(include-before)$
+$include-before$
+$endfor$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
     <section class="slide example"><div>
         <h2 data-l10n-id="example-title"></h2>
         <div class="prices">
@@ -114,9 +92,10 @@
             </ul>
         </div>
     </div></section>
+
     <section class="slide cover title"><div>
         <div class="color1"></div><div class="color2"></div><div class="color3"></div>
-        <h1 data-l10n-id="assets-title"></h1>
+        <h1>Programmation système robuste avec Rust</h1>
 		<img src="pictures/cover.jpg" alt="">
         <p class="footer"><a class="hashtag" href="https://twitter.com/search?q=%23deboxxbtc">#devoxx</a><span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/your_twitter" rel="me" class="twitter">@your_twitter</a></span></p>
     </div></section>
