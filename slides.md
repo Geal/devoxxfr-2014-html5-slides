@@ -18,11 +18,12 @@
 <div>
 ## le CPU, zone de non-droit
 
+<img src="pictures/barbecue.jpg"  style="float:right" height="300px" />
+
 * exécution directe sur CPU
 * manipulation directe de la mémoire
 * intégration avec d'autres applications
 
-<img src="pictures/barbecue.jpg"  />
 
 <!--Loin du monde merveilleux des VM avec GC et compilation JIT-->
 </div>
