@@ -184,13 +184,27 @@ Une task peut embarquer des données du contexte de la task qui l’a lancée (e
 <div>
 
 ## Système de types
-Rust est un langage statiquement et fortement typé. Le compilateur vérifie que toutes les opérations (assignments, appels de fonction, etc) sont cohérentes avec les types. De cette manière, la vérification du format des données est faite à la compilation, sans coût supplémentaire au runtime.
-L’inférence de types est utilisée dès que possible, pour réduire l’impact sur la quantité de code à écrire.
-Toutes les conversion d’un type à un autre sont spécifiées explicitement et empêchent les erreurs.
-Notamment, Rust interdit les pointeurs null. Un pointeur (ou une référence) doit toujours être lié à une donnée valide (si la donnée n’existe plus le pointeur n’est plus utilisable et le compilateur renvoie une erreur).
-Les informations de type n’ont pas d’impact sur le runtime, car ils servent principalement à décrire les interactions entre composants, et la position des membres d’une structure. Rust fournit des énumérations et du pattern matching pour les fonctions qui peuvent recevoir plusieurs type différents.
--> exemple de pattern matching, Option<T>
 
+Strong typing
+Static, mechanical checks
+Correct by construction
+Easy to reason about
+About reasonning, not memory layout
+Valid pointers by contruction
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Structures de données
+
+Structs
+Enums
+Pattern matching
+
+Exemple: Option<T>, JSON
 
 </div>
 </section>
@@ -204,6 +218,17 @@ On peut appliquer un set de méthodes à un type en déclarant un Trait, et ains
 Il est plus intéressant d’employer les traits génériques. on peut ainsi spécifier qu’un trait peut s’appliquer à n’importe quel type, ou à un type qui a une implémentation d’un autre trait.
 -> insérer ici la discussion autour de “plus c’est générique, plus ça restreint les implémentations possibles”
 Des implémentations de certains traits peuvent être dérivés automatiquement d’une struct, rendant leur utilisation plus simple
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Typeclass
+
+Implémentation à l'extrérieur du trait et du type
+Exemple: JSON derivation
 
 </div>
 </section>
