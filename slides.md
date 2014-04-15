@@ -224,7 +224,7 @@ fn main() {
 <section class="slide">
 <div>
 
-## Moved values
+## Ownership
 
 ```rust
 fn main() {
@@ -241,38 +241,87 @@ borrow.rs:6   println!("main task {}", s);
                                        ^
 [...]
 borrow.rs:3:9: 5:4 note: `s` moved into closure environment
-here because it has type `proc:Send()`, which is non-copyable
+here because it has type `proc:Send()`,which is non-copyable
 (perhaps you meant to use clone()?)
 borrow.rs:3   spawn(proc() {
 borrow.rs:4     println!("other task: {}", s);
 borrow.rs:5   });
 ```
 
-En C:
+<!--En C:
 une zone statique est modifiable, on peut pointer sur un morceau de stack après être sorti du bloc, on peut oublier de désallouer une zone mémoire (fuite), on peut désallouer une zone mémoire plusieurs fois (double free)
+-->
+</div>
+</section>
+
+<section class="slide">
+<div>
+## Ca peut être unsafe
+
+```rust
+use std::cast;
+let mut x: u8 = 1;
+
+let ref_1: &mut u8 = &mut x;
+let ref_2: &mut u8 = unsafe {
+  cast::transmute_mut_region(ref_1)
+};
+
+// ref_1 et ref_2 pointent vers la même zone mémoire
+*ref_1 = 10;
+*ref_2 = 20;
+```
+</div>
+</section>
+
+<section class="slide">
+<div>
+## On peut écrire de l'assembleur
+
+```rust
+fn add(a: int, b: int) -> int {
+  let mut c = 0;
+  unsafe {
+    asm!("add $2, $0"
+         : "=r"(c)
+         : "0"(a), "r"(b)
+         );
+  }
+  c
+}
+```
 </div>
 </section>
 
 <section class="slide">
 <div>
 
+## GC
+
+<img src="pictures/aintnogc.jpg" style="float:right" />
+Ca existe, mais...
+
+</div>
+</section>
+
+<section class="slide">
+<div>
 ## Que propose Rust?
-données immutables par défaut, mutables à la demande (sauf pour les données statiques), gestion du scope d’une variable (ajout automatique de malloc/free), gestion de l’ownership (on ne peut modifier une zone mémoire gérée par un autre thread)
+
+* données immutables par défaut, mutables à la demande
+* gestion du scope d’une variable (ajout automatique de malloc/free)
+* gestion de l’ownership (on ne peut modifier une zone mémoire gérée par un autre thread)
+* les manipulations non vérifiables sont isolées
 </div>
 </section>
 
 <section class="slide">
 <div>
-## Que propose Rust?
-Il existait un système de GC dans le langage de base, qui a par la suite été supprimé, car le système actuel est suffisamment puissant pour s’en passer (le GC est fourni dans une lib séparée)
-Les manipulations de mémoire non vérifiables (ex: interaction avec code C) sont isolables dans un bloc unsafe { }
 </div>
 </section>
 
 <section class="slide">
 <div>
-
--> exemples de code
 
 </div>
 </section>
