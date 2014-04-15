@@ -37,7 +37,8 @@
 * driver kernel
 * bibliothèque importable dans d’autres langages
 * multicore
-* indépendance du GC
+* indépendance du GC et de ses pauses
+* embarquer dans un langage à GC
 </div>
 </section>
 
@@ -61,12 +62,24 @@
 <img src="pictures/bufferoverflow.jpg" style="float:right" />
 
 * Pas de vérification du format des données
-* gestion d’erreurs ardue (et facilement ignorée)
+* gestion d’erreurs ardue
+* null pointer dereference
 * buffer overflows
 * heap overflows
 * double free
 * etc.
 
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Y a pas de bug dans mon code
+```text
+Program received signal SIGSEGV, Segmentation fault.
+0x1c0007a8 in main () at main.c:6
+```
 </div>
 </section>
 
@@ -86,18 +99,22 @@
 <div>
 ## Buts du langage
 
+<img src="pictures/rust.jpg" height="400px" style="float:right" />
+
 * bas niveau
 * portable
-* gérant facilement concurrence et parallélisme
+* memory safe
+* concurrence
+* parallélisme
 
-<img src="pictures/rust.jpg" height="50%" />
 </div>
 </section>
 
 <section class="slide">
 <div>
-## Buts du langage
+## Memory safe
 
+* gérer la mémoire à la place du développeur
 * supprimer des classes de bugs entières dans le compilateur
 
 ```text
@@ -111,20 +128,78 @@
 
 <section class="slide">
 <div>
-## Que se passe-t-il dans un monde sans GC ?
+## Un monde sans GC ?
 
 3 méthodes de stockage de données:
 
 * statique (dure aussi longtemps que le process)
 * stack (dure aussi longtemps que le bloc courant)
 * heap (zone mémoire allouée et relâchée à la demande)
-* éventuellement, refcount
 
 </div>
 </section>
 
 <section class="slide">
 <div>
+
+## Statique
+
+```rust
+fn main() {
+  println!("hello world");
+}
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+## Stack
+
+```rust
+fn f() -> &uint {
+  let s = 1;
+  let r = &s;
+  r
+}
+fn main() {
+  println!("{}", f());
+}
+```
+
+```text
+static.rs:3:11: 3:13 error: `s` does not live long enough
+static.rs:3   let r = &s;
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+## Stack: l'erreur complète
+
+```text
+static.rs:3:11: 3:13 error: `s` does not live long enough
+static.rs:3   let r = &s;
+                      ^~
+static.rs:1:17: 5:2 note: reference must be valid for the
+anonymous lifetime #1 defined on the block at 1:16...
+static.rs:1 fn f() -> &uint {
+static.rs:2   let s = 1;
+static.rs:3   let r = &s;
+static.rs:4   r
+static.rs:5 }
+static.rs:1:17: 5:2 note: ...but borrowed value is only
+valid for the block at 1:16
+static.rs:1 fn f() -> &uint {
+static.rs:2   let s = 1;
+static.rs:3   let r = &s;
+static.rs:4   r
+static.rs:5 }
+error: aborting due to previous error
+```
 
 En C:
 une zone statique est modifiable, on peut pointer sur un morceau de stack après être sorti du bloc, on peut oublier de désallouer une zone mémoire (fuite), on peut désallouer une zone mémoire plusieurs fois (double free)
