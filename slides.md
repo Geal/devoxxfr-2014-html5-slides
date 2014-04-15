@@ -22,7 +22,7 @@
 * manipulation directe de la mémoire
 * intégration avec d'autres applications
 
-<img src="pictures/barbecue.jpg" />
+<img src="pictures/barbecue.jpg"  />
 
 <!--Loin du monde merveilleux des VM avec GC et compilation JIT-->
 </div>
@@ -44,6 +44,8 @@
 <div>
 ## Les langages Old School
 
+<img src ="pictures/pointers.jpg" style="float:right" />
+
 * C
 * C++
 * Fortran
@@ -54,6 +56,8 @@
 <section class="slide">
 <div>
 ## Aucune assurance
+
+<img src="pictures/bufferoverflow.jpg" style="float:right" />
 
 * Pas de vérification du format des données
 * gestion d’erreurs ardue (et facilement ignorée)
@@ -85,6 +89,7 @@
 * portable
 * gérant facilement concurrence et parallélisme
 
+<img src="pictures/rust.jpg" height="50%" />
 </div>
 </section>
 
@@ -93,6 +98,8 @@
 ## Buts du langage
 
 * supprimer des classes de bugs entières dans le compilateur
+
+    Do not kill bugs, kill bug classes
 
 <!--Même les meilleurs développeurs font des erreurs, et un certain nombre d’entre elles peuvent être repérées grâce à un compilateur intelligent et un langage qui donne suffisamment d’informations au compilateur.-->
 
