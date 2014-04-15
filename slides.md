@@ -6,7 +6,7 @@
   <div>
   <div class="color1"></div><div class="color2"></div><div class="color3"></div>
   <h1>Programmation système</h1>
-  <img src="pictures/cover.jpg" alt="">
+  <img src="pictures/circuit_board.jpg" alt="">
   <p class="footer">
   <a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a>
   <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a></span> /
@@ -99,7 +99,9 @@
 
 * supprimer des classes de bugs entières dans le compilateur
 
+```text
     Do not kill bugs, kill bug classes
+```
 
 <!--Même les meilleurs développeurs font des erreurs, et un certain nombre d’entre elles peuvent être repérées grâce à un compilateur intelligent et un langage qui donne suffisamment d’informations au compilateur.-->
 
