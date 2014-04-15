@@ -158,11 +158,14 @@ Les manipulations de mémoire non vérifiables (ex: interaction avec code C) son
 <div>
 
 ## L’immutabilité
-L’immutabilité par défaut change beaucoup de choses
-une donnée passée à une fonction ne sera pas modifiée -> pour un même input, on obtient un même output
-mutabilité à la demande -> on isole la mutabilité dans des fonctions définies, on ne peut pas appliquer des fonctions avec arguments mutables à des données immutables
-on ne partage pas de données mutables entre threads -> pas de problème de synchronisation (deadlocks, races, etc)
-si une donnée ne change pas, le compilateur peut exploiter cette information pour des optimisations
+
+ - Persistent data structures
+ - Easier to reason about
+ - mutability is possible, but checked by the compiler
+ - Thread safety
+ - interesting compiler optimisations
+
+
 
 </div>
 </section>
