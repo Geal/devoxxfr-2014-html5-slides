@@ -201,6 +201,53 @@ static.rs:5 }
 error: aborting due to previous error
 ```
 
+</div>
+</section>
+
+<section class="slide">
+<div>
+## Heap
+
+```rust
+fn f() -> ~str {
+  let s = ~"hello world";
+  s
+}
+fn main() {
+  println!("{}", f());
+}
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Moved values
+
+```rust
+fn main() {
+  let s = ~"hello world";
+  spawn(proc() {
+    println!("other task: {}", s);
+  });
+  println!("main task {}", s);
+}
+```
+```text
+borrow.rs:6:28: 6:29 error: use of moved value: `s`
+borrow.rs:6   println!("main task {}", s);
+                                       ^
+[...]
+borrow.rs:3:9: 5:4 note: `s` moved into closure environment
+here because it has type `proc:Send()`, which is non-copyable
+(perhaps you meant to use clone()?)
+borrow.rs:3   spawn(proc() {
+borrow.rs:4     println!("other task: {}", s);
+borrow.rs:5   });
+```
+
 En C:
 une zone statique est modifiable, on peut pointer sur un morceau de stack après être sorti du bloc, on peut oublier de désallouer une zone mémoire (fuite), on peut désallouer une zone mémoire plusieurs fois (double free)
 </div>
