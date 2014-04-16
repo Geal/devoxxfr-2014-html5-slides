@@ -315,12 +315,117 @@ Ca existe, mais...
 </div>
 </section>
 
+<section class="slide cover title">
+  <div>
+  <div class="color1"></div><div class="color2"></div><div class="color3"></div>
+  <h1>Concurrence</h1>
+  <img src="pictures/deadlock.jpg" alt="">
+  <p class="footer">
+  <a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a>
+  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a></span> /
+  <span class="twitter"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a></span></p>
+  </div>
+</section>
 <section class="slide">
 <div>
 
 ## Concurrence
-Rust implémente le modèle CSP. Plusieurs tasks (green threads) s’exécutant sur un pool de threads (mode M:N), ou une task par thread (mode 1:1). Ces tasks communiquent par des channels à sens unique ou double sens, asynchrones (un mode synchrone est dispo, il me semble).
+
+* Modèle CSP-ish
+* Mode M:N ou 1:1
+* channels typés
+* sync/async
+* ownership
+<!--
+Plusieurs tasks (green threads) s’exécutant sur un pool de threads (mode M:N), ou une task par thread (mode 1:1). Ces tasks communiquent par des channels à sens unique ou double sens, asynchrones (un mode synchrone est dispo, il me semble).
 Une task peut embarquer des données du contexte de la task qui l’a lancée (elle en prend l’ownership). Les channels sont typés, donc les données qui y circulent sont garanties de ce type, dès la compilation.
+-->
+</div>
+</section>
+
+<section class="slide">
+<div>
+## Lancer une task
+
+```rust
+fn print_message() { println!("Hello!"); }
+spawn(print_message);
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+## Channels
+
+```rust
+let (tx, rx): (Sender<int>, Receiver<int>) = channel();
+
+spawn(proc() {
+  let result = 1;
+  tx.send(result);
+  println!("result sent");
+});
+
+sleep(200);
+let result = rx.recv();
+println!("result: {}", result);
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+## Ownership
+
+```rust
+let (tx, rx) = channel();
+
+for init_val in range(0u, 3) {
+  let child_tx = tx.clone();
+  spawn(proc() {
+    child_tx.send(init_val);
+    sleep(1000 - (init_val as u64) * 100);
+    println!("sent computation result: {}", init_val);
+  });
+}
+
+let result = rx.recv() + rx.recv() + rx.recv();
+println!("result: {}", result);
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Futures
+
+```rust
+  let mut future = sync::Future::spawn( proc() {
+    partial_sum(ind)
+  });
+
+  sleep(200);
+  println!("result: {}", ft.get());
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Patterns
+
+* Pipeline
+* Pub-sub
+
+![Let it crash](pictures/letitcrash.jpg)
+
 
 </div>
 </section>
