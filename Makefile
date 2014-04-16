@@ -13,6 +13,11 @@ slides.tex: slides.md
 		   -s slides.md \
 		   -o slides.tex
 
+pdf: slides.md
+	./node_modules/.bin/casperjs test.js
+	for i in rust-n*; do convert -crop  1024x640+768x12 $i $i; done
+	convert rust-n* slides.pdf
+
 clean:
 	-rm slides.html
 	-rm slides.pdf
