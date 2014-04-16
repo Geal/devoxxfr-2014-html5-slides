@@ -567,23 +567,3 @@ impl<A:ToJson> ToJson for Option<A> {
 </div>
 </section>
 
-<section class="slide">
-<div>
-
-Process de développement en rust:
-définition de la structure comportant les données nécessaires en entrée et en sortie
-écriture des constructeurs. Généralement, définition d’une structure mutable en interne, et on renvoie une structure immutable
-Définition des types d’erreur Option, Result, etc)
-écriture des opérations de transformation de données
--> le compilateur se plaint -> pester 30mn devant son clavier, se plaindre sur IRC -> voir que le compilateur avait raison (un état global est planqué dans un coin, une variable est utilisée après être supprimée, accès concurrents à une donnée, etc) -> corriger humblement -> recommencer
-Une fois les transformations écrites, l’exécution du code dans des tâches séparées se fait facilement, grâce aux channels typés et à l’immutabilité
-Un programme Rust fonctionne en pipeline:
-on récupère des données en input dans un format incertain, on les parse (ou rejette) vers un format interne
-comme le format interne est bien spécifié, on applique toutes les transformations que l’on veut dessus, sans souci
-on renvoie les données
-Ca permet d’isoler l’IO et les problèmes de concurrence de la partie importante du code
-
-
-</div>
-</section>
-
