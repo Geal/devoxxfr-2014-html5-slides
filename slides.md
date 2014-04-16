@@ -522,7 +522,10 @@ pub enum Option<T> {
 
 ## Polymorphisme paramétrique + traits
 
- Image chocapic
+<img src="pictures/chocapic.png" style="float:right" />
+
+ - Types génériques
+ - \+ contraintes spécifiques
 
 </div>
 </section>
