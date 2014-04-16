@@ -357,12 +357,22 @@ Une task peut embarquer des données du contexte de la task qui l’a lancée (e
 
 ## Système de types
 
-Strong typing
-Static, mechanical checks
-Correct by construction
-Easy to reason about
-About reasonning, not memory layout
-Valid pointers by contruction
+ - Typage statique
+ - Typage fort (whatever it means)
+ - Garanties statiques sur l'exécution
+ - Type system **expressif**
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Système de types
+
+ - Durée de vie des variables
+ - Structures de contrôle typées
+ - Propagation de la mutabilité
 
 </div>
 </section>
@@ -372,11 +382,46 @@ Valid pointers by contruction
 
 ## Structures de données
 
-Structs
-Enums
-Pattern matching
+- Structs (product type)
 
-Exemple: Option<T>, JSON
+```rust
+
+pub struct Point {
+    pub x: int,
+    pub y: int
+}
+
+pub struct Circle {
+    pub center: ~Point,
+    pub radius: uint
+}
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Structures de données
+
+- Enums (sum type)
+
+```rust
+
+pub enum Json {
+    Number(f64),
+    String(~str),
+    Boolean(bool),
+    List(List),
+    Object(~Object),
+    Null,
+}
+
+pub type List = ~[Json];
+pub type Object = TreeMap<~str, Json>;
+
+```
 
 </div>
 </section>
