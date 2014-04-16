@@ -317,11 +317,10 @@ Ca existe, mais...
 
 <section class="slide">
 <div>
-</div>
-</section>
 
-<section class="slide">
-<div>
+## Concurrence
+Rust implémente le modèle CSP. Plusieurs tasks (green threads) s’exécutant sur un pool de threads (mode M:N), ou une task par thread (mode 1:1). Ces tasks communiquent par des channels à sens unique ou double sens, asynchrones (un mode synchrone est dispo, il me semble).
+Une task peut embarquer des données du contexte de la task qui l’a lancée (elle en prend l’ownership). Les channels sont typés, donc les données qui y circulent sont garanties de ce type, dès la compilation.
 
 </div>
 </section>
@@ -338,16 +337,6 @@ Ca existe, mais...
  - interesting compiler optimisations
 
 
-
-</div>
-</section>
-
-<section class="slide">
-<div>
-
-## Concurrence
-Rust implémente le modèle CSP. Plusieurs tasks (green threads) s’exécutant sur un pool de threads (mode M:N), ou une task par thread (mode 1:1). Ces tasks communiquent par des channels à sens unique ou double sens, asynchrones (un mode synchrone est dispo, il me semble).
-Une task peut embarquer des données du contexte de la task qui l’a lancée (elle en prend l’ownership). Les channels sont typés, donc les données qui y circulent sont garanties de ce type, dès la compilation.
 
 </div>
 </section>
