@@ -360,6 +360,7 @@ Une task peut embarquer des données du contexte de la task qui l’a lancée (e
  - Typage statique
  - Typage fort (whatever it means)
  - Garanties statiques sur l'exécution
+ - Polymorphisme paramétrique (*génériques*)
  - Type system **expressif**
 
 </div>
@@ -429,12 +430,39 @@ pub type Object = TreeMap<~str, Json>;
 <section class="slide">
 <div>
 
+## Pattern matching
+
+- Énumération
+- Déconstruction
+
+```rust
+
+match jsonValue {
+    Number(n) => ...
+    String(s) => ...
+    ...
+}
+
+```
+
+</div>
+</section>
+
+
+<section class="slide">
+<div>
+
 ## Traits
-Rust ne force pas le développement dans un paradigme particulier. A la base, on utilise des structs comme en C. on peut passer ces structs comme argument et retour d’une fonction.
-On peut appliquer un set de méthodes à un type en déclarant un Trait, et ainsi fournir un paradigme objet. Les traits peuvent hériter entre eux, pour proposer une sorte d’héritage de classes, mais ce n’est pas le fonctionnement le plus pratique.
-Il est plus intéressant d’employer les traits génériques. on peut ainsi spécifier qu’un trait peut s’appliquer à n’importe quel type, ou à un type qui a une implémentation d’un autre trait.
--> insérer ici la discussion autour de “plus c’est générique, plus ça restreint les implémentations possibles”
-Des implémentations de certains traits peuvent être dérivés automatiquement d’une struct, rendant leur utilisation plus simple
+
+- Séparation données / fonctions
+
+```rust
+impl Circle {
+    pub fn radius(&self) -> float {
+        float::consts::pi * self.radius * 2
+    }
+}
+```
 
 </div>
 </section>
@@ -442,20 +470,91 @@ Des implémentations de certains traits peuvent être dérivés automatiquement 
 <section class="slide">
 <div>
 
-## Typeclass
+## Typeclass pattern
 
-Implémentation à l'extrérieur du trait et du type
-Exemple: JSON derivation
+- Factorisation des comportements
+
+```rust
+
+pub trait Show {
+    fn fmt(&self, &mut Formatter) -> Result;
+}
+impl fmt::Show for Circle {
+    fn show(&self, fmt: &mut ftm::Formatter) -> float {
+        write!(fmt.buf, ...)
+    }
+}
+```
 
 </div>
 </section>
+
+<section class="slide">
+<div>
+
+## Traits de base
+
+- `Eq` pour l'égalité (auto-implémentable)
+- `Ord` pour la comparaison
+- `Hash` pour les condensats (auto-implémentable)
+- … et beaucoup d'autres !
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Polymorphisme paramétrique
+
+```rust
+pub enum Option<T> {
+    None,
+    Some(T)
+}
+```
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Polymorphisme paramétrique + traits
+
+ Image chocapic
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Typeclass pattern
+
+```rust
+impl<A:ToJson> ToJson for Option<A> {
+    fn to_json(&self) -> Json {
+        match *self {
+          None => Null,
+          Some(ref value) => value.to_json()
+        }
+    }
+}
+```
+
+</div>
+</section>
+
 
 <section class="slide">
 <div>
 
 ## Crates, modules, etc
-Les bibliothèques sont nommées des crates, on les appelle par “extern crate XXX;”. On ne peut utiliser que des fonctions ou traits qui ont été importés (quoique certains sont récupérables par inférence)
-Dépendance non transitives: on ne peut pas utiliser un crate qui a été importé par l’une des dépendances, il faut l’importer explicitement.
+
+ - *Crate* <=> bibliothèques
+ - Imports explicites
+ - Pas de fuites
 
 </div>
 </section>
