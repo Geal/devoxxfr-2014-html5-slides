@@ -346,13 +346,10 @@ Une task peut embarquer des données du contexte de la task qui l’a lancée (e
 
 ## L’immutabilité
 
- - Persistent data structures
- - Easier to reason about
- - mutability is possible, but checked by the compiler
- - Thread safety
- - interesting compiler optimisations
-
-
+ - Structure de données persistentes
+ - Raisonnement simplifié
+ - *Thread safety*
+ - Optimisations possibles
 
 </div>
 </section>
@@ -374,7 +371,9 @@ Une task peut embarquer des données du contexte de la task qui l’a lancée (e
 <section class="slide">
 <div>
 
-## Système de types
+## Aller plus loin
+
+<img src="pictures/enterprise.jpg" style="float:right" />
 
  - Durée de vie des variables
  - Structures de contrôle typées
