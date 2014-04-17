@@ -95,6 +95,8 @@
 Program received signal SIGSEGV, Segmentation fault.
 0x1c0007a8 in main () at main.c:6
 ```
+
+<img src="pictures/slap.gif" />
 </div>
 </section>
 
@@ -382,6 +384,7 @@ fn print_message() { println!("Hello!"); }
 spawn(print_message);
 ```
 
+<img src="pictures/goatslide.gif" />
 </div>
 </section>
 
