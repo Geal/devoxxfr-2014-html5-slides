@@ -671,3 +671,22 @@ impl<A:ToJson> ToJson for Option<A> {
 </div>
 </section>
 
+
+<section class="slide">
+<div>
+
+## Crates, modules, etc
+
+ - *Crate* <=> bibliothèques
+ - Imports explicites
+ - Pas de fuites
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+<img src="./pictures/banco.gif" alt="" style="width: 100%"/>
+</div>
+</section>
+
