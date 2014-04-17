@@ -752,6 +752,18 @@ impl<A:ToJson> ToJson for Option<A> {
 
 <section class="slide">
 <div>
+## Conclusion
+
+* la programmation système, ça peut être sûr
+* la garbage collection, c'est pas automatique
+* on peut être bas niveau avec des outils évolués
+
+<a href="http://www.rust-lang.org">http://www.rust-lang.org</a>
+</div>
+</section>
+
+<section class="slide">
+<div>
 <img src="./pictures/banco.gif" alt="" style="width: 100%"/>
 </div>
 </section>
