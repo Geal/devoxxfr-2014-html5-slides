@@ -478,6 +478,16 @@ println!("result: {}", result);
   </div>
 </section>
 
+<section class="slide">
+<div>
+
+## Mutabilité par défaut == optimisation prématurée
+
+![](./pictures/deal_with_it.gif)
+
+</div>
+</section>
+
 
 <section class="slide">
 <div>
@@ -500,6 +510,19 @@ println!("result: {}", result);
  - Typage statique
  - Typage fort (whatever it means)
  - Garanties statiques sur l'exécution
+
+
+</div>
+</section>
+
+</section>
+
+
+<section class="slide">
+<div>
+
+## Système de types
+
  - Polymorphisme paramétrique (*génériques*)
  - Type system **expressif**
 
