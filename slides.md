@@ -582,8 +582,8 @@ match jsonValue {
 
 ```rust
 impl Circle {
-    pub fn radius(&self) -> float {
-        float::consts::pi * self.radius * 2
+    pub fn radius(&self) -> f64 {
+        f64::consts::PI * self.radius * 2
     }
 }
 ```
@@ -622,6 +622,31 @@ impl fmt::Show for Circle {
 - `Ord` pour la comparaison
 - `Hash` pour les condensats (auto-implémentable)
 - … et beaucoup d'autres !
+
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+## Auto implémetation
+
+```rust
+
+#[deriving(Eq, Clone, Show)]
+pub struct Point {
+    pub x: f64,
+    pub y: f64
+}
+
+#[deriving(Eq, Clone, Show)]
+pub struct Circle {
+    pub center: ~Point,
+    pub radius: f64
+}
+```
+
+
 
 </div>
 </section>
