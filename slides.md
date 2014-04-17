@@ -17,7 +17,7 @@
   <img src="pictures/circuit_board.jpg" alt="">
   <p class="footer">
   <a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a>
-  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a></span> /
+  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a> / </span>
   <span class="twitter"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a></span></p>
   </div>
 </section>
@@ -105,7 +105,7 @@ Program received signal SIGSEGV, Segmentation fault.
   <img src="pictures/rusty_gear.jpg" alt="">
   <p class="footer">
   <a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a>
-  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a></span> /
+  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a> / </span>
   <span class="twitter"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a></span></p>
   </div>
 </section>
@@ -344,7 +344,7 @@ Ca existe, mais...
   <img src="pictures/deadlock.jpg" alt="">
   <p class="footer">
   <a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a>
-  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a></span> /
+  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a> / </span>
   <span class="twitter"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a></span></p>
   </div>
 </section>
@@ -470,7 +470,7 @@ println!("result: {}", result);
   </div>
   <p class="footer">
   <a class="hashtag" href="https://twitter.com/search?q=%23devoxxrust">#devoxxrust</a>
-  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a></span> /
+  <span class="twitter"><img src="pictures/twitter.png"><a href="https://twitter.com/clementd" rel="me" class="twitter">@clementd</a> / </span>
   <span class="twitter"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a></span></p>
   </div>
 </section>
