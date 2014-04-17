@@ -2,6 +2,14 @@
 % Clément Delafargue & Geoffroy Couprie
 % 17 Avril 2014
 
+<section class="slide">
+<div>
+## Le duo comique
+
+<img src="./pictures/elephants-pool.gif" alt="" style="width: 100%"/>
+</div>
+</section>
+
 <section class="slide cover title">
   <div>
   <div class="color1"></div><div class="color2"></div><div class="color3"></div>
@@ -13,6 +21,7 @@
   <span class="twitter"><a href="https://twitter.com/gcouprie" rel="me" class="twitter">@gcouprie</a></span></p>
   </div>
 </section>
+
 
 <section class="slide">
 <div>
@@ -36,7 +45,6 @@
 <!-- Il y a des use cases qu’un langage à VM ne peut pas remplir:-->
 * driver kernel
 * bibliothèque importable dans d’autres langages
-* multicore
 * indépendance du GC et de ses pauses
 * embarquer dans un langage à GC
 </div>
@@ -52,6 +60,13 @@
 * C++
 * Fortran
 
+</div>
+</section>
+
+<section class="slide">
+<div>
+
+<img src="./pictures/exploding-poo.gif" alt="" style="width: 100%"/>
 </div>
 </section>
 
@@ -339,16 +354,24 @@ Ca existe, mais...
 ## Concurrence
 
 * Modèle CSP-ish
-* Mode M:N ou 1:1
-* channels typés
 * sync/async
+* channels typés
 * ownership
+* Mode M:N ou 1:1
 <!--
 Plusieurs tasks (green threads) s’exécutant sur un pool de threads (mode M:N), ou une task par thread (mode 1:1). Ces tasks communiquent par des channels à sens unique ou double sens, asynchrones (un mode synchrone est dispo, il me semble).
 Une task peut embarquer des données du contexte de la task qui l’a lancée (elle en prend l’ownership). Les channels sont typés, donc les données qui y circulent sont garanties de ce type, dès la compilation.
 -->
 </div>
 </section>
+
+<section class="slide">
+<div>
+<img src="./pictures/goatturtle.gif" alt="" style="width: 100%"/>
+</div>
+</section>
+
+
 
 <section class="slide">
 <div>
