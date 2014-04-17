@@ -176,6 +176,13 @@ static.rs:3   let r = &s;
 </div>
 </section>
 
+
+<section class="slide">
+<div>
+<img src="./pictures/georgerrmartin.jpg" alt="" style="width: 100%"/>
+</div>
+</section>
+
 <section class="slide">
 <div>
 ## Stack: l'erreur complète
@@ -486,6 +493,14 @@ println!("result: {}", result);
 
 </div>
 </section>
+
+
+<section class="slide">
+<div>
+<img src="./pictures/hippo.gif" alt="" style="width: 100%"/>
+</div>
+</section>
+
 
 <section class="slide">
 <div>
